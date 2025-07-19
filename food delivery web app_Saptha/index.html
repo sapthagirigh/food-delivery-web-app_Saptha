@@ -1,0 +1,83 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Saptha Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./sample.css"> 
+</head>
+<body>
+  <div class="header">
+    <h1>Saptha Cafe</h1>
+    <input type="text" class="search-box" id="searchInput" placeholder="Search food items...">
+    <div class="header-btns">
+      <button id="ordersBtn">Orders</button>
+      <button id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+
+  <div class="main-content" id="menuContainer">
+  </div>
+
+  <div class="popup-overlay" id="cartOverlay">
+    <div class="popup">
+      <div class="popup-header">
+        <h2>Your Cart</h2>
+        <button class="close-btn" onclick="closePopup('cartOverlay')">&times;</button>
+      </div>
+      <div id="cartItems">
+        <p class="empty-message">Your cart is empty</p>
+      </div>
+      <div class="cart-total" id="cartTotal">Total: ₹0</div>
+      <div class="cart-actions">
+        <button onclick="proceedToCheckout()">Checkout</button>
+        <button onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="ordersOverlay">
+    <div class="popup">
+      <div class="popup-header">
+        <h2>Order History</h2>
+        <button class="close-btn" onclick="closePopup('ordersOverlay')">&times;</button>
+      </div>
+      <div id="orderHistory">
+        <p class="empty-message">No orders found</p>
+      </div>
+      <button class="clear-history-btn" onclick="clearOrderHistory()">Clear History</button>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="checkoutOverlay">
+    <div class="popup">
+      <div class="popup-header">
+        <h2>Checkout</h2>
+        <button class="close-btn" onclick="closePopup('checkoutOverlay')">&times;</button>
+      </div>
+      <form class="checkout-form" id="checkoutForm">
+        <input type="text" id="customerName" placeholder="Your Name" required>
+        <input type="text" id="deliveryAddress" placeholder="Delivery Address" required>
+        <select id="paymentMethod" required>
+          <option value="">Select Payment Method</option>
+          <option value="cod">Cash on Delivery</option>
+          <option value="upi">UPI</option>
+          <option value="card">Credit/Debit Card</option>
+        </select>
+        <button type="submit" class="submit-btn">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="confirmOverlay">
+    <div class="popup">
+      <div class="success-message">
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for ordering from Saptha Cafe!</p>
+        <p>Your order will be delivered soon. </p>
+        <button class="back-btn" onclick="backToMenu()">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+<script src="./main.js"></script>
+</body>
+</html>
